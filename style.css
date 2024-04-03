@@ -44,3 +44,15 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+#
+profile-pic {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    width: 100px; /* Adjust the size of your picture */
+    height: 100px; /* Adjust the size of your picture */
+    border-radius: 50%; /* This creates the circular border */
+    border: 2px solid #fff; /* Border color and thickness */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: Adds a shadow effect */
+}
