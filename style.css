@@ -47,8 +47,8 @@ footer {
 /* Profile Picture */
 #profile-pic {
     position: absolute;
-    top: 20px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
+    top: 2px; /* Adjust as needed */
+    right: 35px; /* Adjust as needed */
     width: 100px; /* Adjust the size of your picture */
     height: 100px; /* Adjust the size of your picture */
     border-radius: 50%; /* This creates the circular border */
