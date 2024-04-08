@@ -55,4 +55,67 @@ footer {
     border: 2px solid #fff; /* Border color and thickness */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: Adds a shadow effect */
 }
+header:hover {
+    background-color: #555; /* Change to a darker color on hover */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
 
+header h1 {
+    font-size: 36px; /* Increase font size */
+}
+
+header {
+    background-image: url('header-bg.jpg'); /* Replace 'header-bg.jpg' with the path to your image */
+    background-size: cover; /* Cover the entire header area */
+    background-position: center; /* Center the background image */
+}
+
+header {
+    background: linear-gradient(to bottom, #4CAF50, #2196F3); /* Example gradient */
+}
+
+nav a:hover {
+    color: #bbb; /* Change color on hover */
+    transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+nav a {
+    font-family: "Helvetica Neue", Arial, sans-serif; /* Change font family */
+    font-weight: bold; /* Change font weight */
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 20px; /* Add margin between sections */
+}
+
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #333; /* Adjust color as needed */
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #fff; /* Icon color */
+}
+
+.social-icons li a:hover {
+    background-color: #555; /* Change color on hover */
+}
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Smooth fade-in effect */
+}
+
+section.visible {
+    opacity: 1;
+}
