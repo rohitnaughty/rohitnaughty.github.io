@@ -1,337 +1,532 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohit Nautiyal - Data Analyst Portfolio</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa;
-            scroll-behavior: smooth;
-        }
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .header-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-        }
-        .profile-pic {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .profile-pic:hover {
-            transform: scale(1.08);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-        }
-        .navbar {
-            background-color: #1a252f;
-        }
-        .navbar-nav .nav-link {
-            color: #fff;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .navbar-nav .nav-link:hover {
-            color: #0d6efd;
-        }
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #0d6efd;
-            transition: width 0.3s ease;
-        }
-        .navbar-nav .nav-link:hover::after {
-            width: 100%;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .card {
-            border: none;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        }
-        .skill-tag {
-            display: inline-block;
-            background-color: #e9ecef;
-            color: #343a40;
-            padding: 8px 16px;
-            margin: 4px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-        }
-        .skill-tag:hover {
-            background-color: #0d6efd;
-            color: #fff;
-            transform: scale(1.1);
-        }
-        .btn-primary {
-            background-color: #0d6efd;
-            border: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #0a58ca;
-            transform: translateY(-3px);
-        }
-        .certificate-img {
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-        .certificate-img:hover {
-            transform: scale(1.05);
-        }
-        footer {
-            background-color: #1a252f;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohit Nautiyal · data & analytics</title>
+  <!-- Bootstrap 5 + icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Playfair Display (accent) + Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- AOS (Animate on Scroll) for refined animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #0c0f15;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #edf2f9;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .display-6, .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    /* ===== refined gradient header with parallax ===== */
+    .header-bg {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 30%, #1b2c3f, #0a121f 80%);
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .header-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat fixed;
+      opacity: 0.1;
+      z-index: -1;
+      filter: blur(2px) saturate(1.8);
+      animation: slowPan 30s infinite alternate ease-in-out;
+    }
+    @keyframes slowPan {
+      0% { transform: scale(1) translateX(0); }
+      100% { transform: scale(1.08) translateX(-1%) translateY(1%); }
+    }
+    /* floating orbs */
+    .header-bg .orb {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle at 30% 30%, rgba(0,180,255,0.15), transparent 70%);
+      border-radius: 50%;
+      top: 10%;
+      left: 5%;
+      filter: blur(60px);
+      animation: float 16s infinite alternate;
+    }
+    .header-bg .orb2 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(100,0,255,0.1), transparent 75%);
+      bottom: 0;
+      right: 0;
+      top: auto;
+      left: auto;
+      filter: blur(80px);
+      animation: float2 20s infinite alternate;
+    }
+    @keyframes float {
+      0% { transform: translate(0,0) scale(1); }
+      100% { transform: translate(5%,8%) scale(1.2); }
+    }
+    @keyframes float2 {
+      0% { transform: translate(0,0) scale(1); }
+      100% { transform: translate(-8%,-5%) scale(1.3); }
+    }
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.25);
+      box-shadow: 0 30px 40px -15px #000000, 0 0 0 3px rgba(0,212,255,0.3);
+      transition: all 0.5s cubic-bezier(0.2,0.9,0.3,1.2);
+    }
+    .profile-pic:hover {
+      transform: scale(1.06) rotate(2deg);
+      border-color: #fff;
+      box-shadow: 0 40px 50px -5px #00a6ff;
+    }
+    /* ===== glass navbar with shimmer ===== */
+    .navbar {
+      background: rgba(8, 18, 28, 0.7);
+      backdrop-filter: blur(16px) saturate(200%);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+      box-shadow: 0 15px 35px -10px #00000080;
+      padding: 14px 0;
+    }
+    .navbar-nav .nav-link {
+      color: #dbeafe;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      transition: all 0.2s;
+      margin: 0 0.2rem;
+      text-transform: capitalize;  /* first word capital already */
+      position: relative;
+      letter-spacing: 0.02em;
+    }
+    .navbar-nav .nav-link:hover {
+      color: white;
+      background: rgba(0, 153, 255, 0.15);
+      text-shadow: 0 0 12px #00aeff;
+    }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00b7ff, #a05eff, transparent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+    /* section titles: capitalised first word (already) + elegant gradient */
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #fff, #b2e0ff, #c3a0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 3rem;
+      display: inline-block;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(0, 162, 255, 0.6);
+      text-transform: capitalize;   /* ensures first letter capital */
+      position: relative;
+    }
+    .section-title::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 40%;
+      height: 3px;
+      background: linear-gradient(90deg, #00ccff, #a06eff);
+      border-radius: 4px;
+    }
+    /* ultra-premium glass card with depth */
+    .glass-card {
+      background: rgba(18, 30, 45, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 191, 255, 0.15);
+      border-radius: 42px;
+      box-shadow: 0 30px 50px -30px #000000, 0 0 0 1px rgba(255,255,255,0.02) inset;
+      transition: all 0.4s cubic-bezier(0.2,0.9,0.3,1);
+      overflow: hidden;
+    }
+    .glass-card:hover {
+      border-color: #00b7ff80;
+      background: rgba(22, 40, 58, 0.7);
+      box-shadow: 0 45px 70px -25px #003cff, 0 0 0 1px #00a6ff inset;
+      transform: translateY(-8px) scale(1.01);
+    }
+    /* skill chip — classy */
+    .skill-chip {
+      display: inline-block;
+      background: rgba(0, 153, 255, 0.08);
+      border: 1px solid #1e6080;
+      color: #dcf2ff;
+      padding: 0.65rem 1.7rem;
+      border-radius: 60px;
+      font-size: 0.98rem;
+      font-weight: 500;
+      margin: 0.4rem;
+      backdrop-filter: blur(5px);
+      transition: 0.25s;
+      box-shadow: 0 8px 16px -12px black;
+    }
+    .skill-chip:hover {
+      background: #0099ff;
+      color: #0b101a;
+      border-color: white;
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 0 30px #00aeff;
+      font-weight: 600;
+    }
+    /* dashboard images with elegant frame */
+    .dash-img {
+      border-radius: 28px;
+      border: 2px solid rgba(0, 200, 255, 0.3);
+      box-shadow: 0 30px 40px -20px black, 0 0 0 1px rgba(255,255,240,0.1) inset;
+      transition: 0.5s;
+      background: #0b1f2b;
+    }
+    .dash-img:hover {
+      transform: scale(1.02) translateY(-5px);
+      border-color: #8ecaff;
+      box-shadow: 0 40px 50px -18px #00b7ff, 0 0 0 1px #ffffff40 inset;
+    }
+    /* custom list */
+    .list-group-flush .list-group-item {
+      background: transparent;
+      border-bottom: 1px solid rgba(0, 180, 255, 0.15);
+      color: #e0edfd;
+      padding-left: 2.3rem;
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+    .list-group-flush .list-group-item::before {
+      content: "✦";
+      color: #00c8ff;
+      position: absolute;
+      left: 8px;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px #0077ff;
+    }
+    /* contact links luxury */
+    .contact-link {
+      background: rgba(0, 153, 255, 0.06);
+      border: 1px solid #1b6e9b;
+      border-radius: 50px;
+      padding: 0.8rem 1.9rem;
+      margin: 0.2rem 0.5rem;
+      display: inline-block;
+      color: #fff;
+      transition: 0.3s;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+    }
+    .contact-link i {
+      color: #00c3ff;
+      margin-right: 10px;
+      transition: 0.2s;
+    }
+    .contact-link:hover {
+      background: #0080ff;
+      border-color: white;
+      color: black;
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 35px #00aeff;
+    }
+    .contact-link:hover i {
+      color: black;
+    }
+    .btn-resume {
+      background: linear-gradient(135deg, #002c47, #011b2b);
+      border: 2px solid #00b7ff;
+      color: white;
+      font-weight: 700;
+      padding: 18px 48px;
+      border-radius: 60px;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      box-shadow: 0 20px 30px -12px #000, 0 0 30px #003cff;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-resume::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.7s;
+    }
+    .btn-resume:hover::before {
+      left: 150%;
+    }
+    .btn-resume:hover {
+      background: linear-gradient(135deg, #003f66, #002b40);
+      border-color: #80ebff;
+      box-shadow: 0 25px 40px -8px #0077ff, 0 0 60px #0055ff;
+      transform: translateY(-5px);
+    }
+    footer {
+      background: #070e16;
+      border-top: 1px solid #114466;
+      font-size: 0.95rem;
+    }
+    /* fade animations with AOS we set data-aos */
+    [data-aos] {
+      transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    /* extra micro-interactions */
+    .highlight-text {
+      background: linear-gradient(145deg, #b7e4ff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .badge-neon {
+      background: rgba(0, 40, 70, 0.6);
+      border: 1px solid #0099ff;
+      color: #e2f0ff;
+      padding: 10px 26px;
+      border-radius: 60px;
+      backdrop-filter: blur(8px);
+      font-weight: 400;
+    }
+  </style>
 </head>
 <body>
-    <header class="header-bg text-center">
-        <div>
-            <img src="DSC_6421.JPG" alt="Rohit Nautiyal" class="profile-pic mb-4">
-            <h1 class="display-4 fw-bold">Rohit Nautiyal</h1>
-            <p class="lead">Data Analyst | Power BI | Python | SQL</p>
+
+<!-- ultra premium header with orbs and parallax -->
+<header class="header-bg">
+  <div class="orb"></div>
+  <div class="orb2"></div>
+  <div class="container position-relative" style="z-index: 3;">
+    <img src="DSC_6421.JPG" 
+         alt="Rohit Nautiyal" class="profile-pic mb-4" data-aos="zoom-in" data-aos-duration="1000">
+    <h1 class="display-2 fw-bold" data-aos="fade-up" data-aos-delay="150" style="background: linear-gradient(135deg, #fff, #b0e6ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Rohit Nautiyal</h1>
+    <p class="lead fs-2 fw-light" data-aos="fade-up" data-aos-delay="250" style="color: rgba(255,255,255,0.9);">Data Analyst · Power BI · Python · SQL</p>
+    <div class="d-flex justify-content-center gap-3 mt-4" data-aos="fade-up" data-aos-delay="350">
+      <span class="badge-neon"><i class="bi bi-bar-chart-steps me-2"></i>2+ years experience</span>
+      <span class="badge-neon"><i class="bi bi-geo-alt-fill me-2"></i>Dehradun, India</span>
+    </div>
+  </div>
+</header>
+
+<!-- glass navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-5">
+  <!-- About -->
+  <section id="about" class="my-5">
+    <h2 class="section-title text-center" data-aos="fade-down">About</h2>
+    <div class="glass-card p-5" data-aos="fade-up" data-aos-duration="900">
+      <p class="fs-5 fw-light lh-lg" style="color: #e1f0ff;">
+        <i class="fas fa-quote-right text-info me-2 opacity-75"></i>
+        As a Data Analyst with over a year of hands-on experience, I specialize in transforming complex data into actionable insights through advanced statistical methods, SQL, and Power BI. My expertise lies in analyzing data to identify patterns and trends, crafting insightful reports, and delivering compelling visualizations that empower informed decision-making.
+      </p>
+      <p class="fs-5 fw-light lh-lg mt-4">
+        I've proven my analytical skills in collaborative projects, particularly focusing on GenZ market trends, significantly influencing strategic directions. My passion for continuous learning and adaptability shines in dynamic environments, where I excel in synthesizing data to drive innovative strategies.
+      </p>
+      <div class="mt-4 d-flex gap-5 flex-wrap">
+        <span><i class="bi bi-gender-male text-info me-2"></i> Male</span>
+        <span><i class="bi bi-calendar-heart text-info me-2"></i> 13/04/2000</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="my-5">
+    <h2 class="section-title text-center" data-aos="fade-down">Education</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="flip-left" data-aos-delay="100"><div class="glass-card p-4"><h3 class="h5 fw-bold"><i class="bi bi-mortarboard-fill text-info me-2"></i>MSc Statistics</h3><p class="mb-0 text-secondary-emphasis">DAV PG College Dehradun · 2020–2022</p></div></div>
+      <div class="col-md-6" data-aos="flip-left" data-aos-delay="200"><div class="glass-card p-4"><h3 class="h5 fw-bold"><i class="bi bi-flask text-info me-2"></i>BSc Physics, Statistics, Maths</h3><p>DAV PG College · 2017–2020</p></div></div>
+      <div class="col-md-6" data-aos="flip-left" data-aos-delay="300"><div class="glass-card p-4"><h3 class="h5 fw-bold"><i class="bi bi-book-half text-info me-2"></i>Intermediate (CBSE)</h3><p>Kendriya Vidyalaya I.M.A. · 2016–2017</p></div></div>
+      <div class="col-md-6" data-aos="flip-left" data-aos-delay="400"><div class="glass-card p-4"><h3 class="h5 fw-bold"><i class="bi bi-award-fill text-info me-2"></i>Matriculation</h3><p>Kendriya Vidyalaya I.M.A. · 2014–2015</p></div></div>
+    </div>
+  </section>
+
+  <!-- Experience + dash images -->
+  <section id="experience" class="my-5">
+    <h2 class="section-title text-center" data-aos="fade-down">Experience</h2>
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <div class="glass-card p-4" data-aos="fade-right" data-aos-delay="100">
+          <h3 class="fw-bold">Data Analyst <span class="badge bg-info text-dark ms-2">current</span></h3>
+          <p class="text-info">Neocrew Technology · 07/2024 – present · Chandigarh</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Built & maintained Power BI reports & dashboards.</li>
+            <li class="list-group-item">Optimized SQL queries, stored procedures & functions.</li>
+            <li class="list-group-item">Translated business requirements into data solutions.</li>
+            <li class="list-group-item">Automated processes, improved efficiency by 30%.</li>
+          </ul>
         </div>
-    </header>
-
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+        <div class="glass-card mt-4 p-4" data-aos="fade-right" data-aos-delay="150">
+          <h3 class="fw-bold">Assistant MIS (Data Analyst)</h3>
+          <p class="text-info">Vasuhealthcare · 09/2023 – present · Vadodara</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Python + Twilio + SAP HANA notification app.</li>
+            <li class="list-group-item">Azure Functions & Power Automate sales pipeline.</li>
+            <li class="list-group-item">Interactive Power BI dashboards for leadership.</li>
+          </ul>
         </div>
-    </nav>
+        <div class="glass-card mt-4 p-4" data-aos="fade-right" data-aos-delay="200">
+          <h3 class="fw-bold">BI Internship</h3>
+          <p class="text-info">Ineuron.ai · 05/2023 – 03/2024</p>
+          <p>Sales mgmt Power BI: ETL, trends, KPIs, profitability.</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Power BI dashboard" class="img-fluid dash-img mb-4" data-aos="zoom-in-left" data-aos-delay="150">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="dashboard visual" class="img-fluid dash-img mb-4" data-aos="zoom-in-left" data-aos-delay="250">
+        <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop" alt="analytics dashboard" class="img-fluid dash-img" data-aos="zoom-in-left" data-aos-delay="350">
+      </div>
+    </div>
+  </section>
 
-    <main class="container py-5">
-        <section id="about" class="my-5 fade-in">
-            <h2 class="display-6 fw-bold text-center mb-4">About Me</h2>
-            <div class="card shadow-sm p-4">
-                <p class="lead">
-                    As a Data Analyst with over a year of hands-on experience, I specialize in transforming complex data into actionable insights through advanced statistical methods, SQL, and Power BI. My expertise lies in analyzing data to identify patterns and trends, crafting insightful reports, and delivering compelling visualizations that empower informed decision-making.
-                </p>
-                <p class="lead mt-3">
-                    I've proven my analytical skills in collaborative projects, particularly focusing on GenZ market trends, significantly influencing strategic directions. My passion for continuous learning and adaptability shines in dynamic environments, where I excel in synthesizing data to drive innovative strategies.
-                </p>
-                <p class="lead mt-3">
-                    I'm keen to contribute my growing expertise in data analysis to your team, fostering data-driven decision-making and innovative solutions. Let's connect to explore collaborative opportunities.
-                </p>
-                <p class="mt-4"><strong>Gender:</strong> Male | <strong>Date of Birth:</strong> 13/04/2000</p>
-            </div>
-        </section>
+  <!-- Projects -->
+  <section id="projects" class="my-5">
+    <h2 class="section-title text-center" data-aos="fade-down">Projects</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card p-4">
+          <h3 class="fw-bold">BI Solution for HPN</h3>
+          <p class="text-info">Power BI · 02/2023 – 05/2023</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">End-to-end BI: net sales, profit, orders, returns.</li>
+            <li class="list-group-item">Data normalization, table relationships.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card p-4">
+          <h3 class="fw-bold">GenZ Market trend analysis</h3>
+          <p class="text-info">Python + Power BI · 2024</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Statistical analysis on consumer behavior.</li>
+            <li class="list-group-item">Interactive dashboard with forecasting.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section id="education" class="my-5 fade-in">
-            <h2 class="display-6 fw-bold text-center mb-4">Education</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">MSc in Statistics</h3>
-                        <p class="text-muted">DAV PG College Dehradun | 2020 – 2022 | Dehradun, India</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">Bachelor of Science in Physics, Statistics, Mathematics</h3>
-                        <p class="text-muted">DAV PG College Dehradun | 2017 – 2020 | Dehradun, India</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">Intermediate</h3>
-                        <p class="text-muted">Kendriya Vidyalaya I.M.A. | 2016 – 2017 | Dehradun, India</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">Matriculation</h3>
-                        <p class="text-muted">Kendriya Vidyalaya I.M.A. | 2014 – 2015 | Dehradun, India</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Certificates -->
+  <section id="certificates" class="my-5">
+    <h2 class="section-title text-center" data-aos="fade-down">Certificates</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="flip-right" data-aos-delay="150">
+        <div class="glass-card p-4">
+          <h3 class="h5 fw-bold">Full Stack Data Science BootCamp 2.0</h3>
+          <p class="text-info">Ineuron</p>
+          <p>ML ops, cloud, real‑time projects</p>
+          <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=1974&auto=format&fit=crop" alt="certificate" class="img-fluid dash-img">
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="flip-right" data-aos-delay="250">
+        <div class="glass-card p-4">
+          <h3 class="h5 fw-bold">Business Intelligence Internship</h3>
+          <p class="text-info">Ineuron.ai</p>
+          <p>Media & entertainment analytics – Power BI</p>
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop" alt="certificate" class="img-fluid dash-img">
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section id="experience" class="my-5 fade-in">
-            <h2 class="display-6 fw-bold text-center mb-4">Professional Experience</h2>
-            <div class="row g-4">
-                <div class="col-12">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">Data Analyst</h3>
-                        <p class="text-muted">Neocrew Technology | 07/2024 – Present | Chandigarh, India</p>
-                        <ul class="list-group list-group-flush mt-2">
-                            <li class="list-group-item">Built and maintained Power BI reports and dashboards.</li>
-                            <li class="list-group-item">Developed and optimized SQL queries and created stored procedures and functions for extracting complex data for reporting.</li>
-                            <li class="list-group-item">Translated business requirements into data solutions.</li>
-                            <li class="list-group-item">Ensured data accuracy and validation in all reports.</li>
-                            <li class="list-group-item">Automated data processes for improved efficiency.</li>
-                            <li class="list-group-item">Collaborated with clients to gather requirements and deliver tailored data solutions.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">Assistant MIS (Data Analyst)</h3>
-                        <p class="text-muted">Vasuhealthcare | 09/2023 – Present | Vadodara, India</p>
-                        <ul class="list-group list-group-flush mt-2">
-                            <li class="list-group-item">Built an application to notify customers about dispatched products via WhatsApp (Python, Twilio, SAP HANA DB).</li>
-                            <li class="list-group-item">Developed an application to retrieve data from a database, calculate daily, monthly, and yearly sales figures, and send them as WhatsApp messages to managers (Python, Twilio, Power Automate, Azure Blob Storage, Azure Function).</li>
-                            <li class="list-group-item">Created and maintained interactive visualizations using Power BI for dashboards.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">Business Intelligence Internship</h3>
-                        <p class="text-muted">Ineuron.ai | 05/2023 – 03/2024</p>
-                        <p class="mt-2">Developed a sales management project in Power BI, leveraging ETL techniques on Amazon data to analyze sales trends (monthly, yearly), identify key metrics, and reveal meaningful relationships for improved profitability.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Skills -->
+  <section id="skills" class="my-5">
+    <h2 class="section-title text-center" data-aos="fade-down">Skills</h2>
+    <div class="glass-card p-5 text-center" data-aos="zoom-in">
+      <div class="d-flex flex-wrap justify-content-center">
+        <span class="skill-chip"><i class="fab fa-python me-1"></i>Python</span><span class="skill-chip">PySpark</span><span class="skill-chip"><i class="fas fa-cloud me-1"></i>Azure</span><span class="skill-chip"><i class="fas fa-chart-simple me-1"></i>Power BI</span><span class="skill-chip"><i class="fas fa-database me-1"></i>MySQL</span><span class="skill-chip">Statistical Analysis</span><span class="skill-chip">Data Viz</span><span class="skill-chip">MS Excel</span><span class="skill-chip">Pandas</span><span class="skill-chip">NumPy</span><span class="skill-chip">SAP B1</span><span class="skill-chip">Power Automate</span><span class="skill-chip">Twilio</span><span class="skill-chip">DAX</span><span class="skill-chip">ETL</span>
+      </div>
+    </div>
+  </section>
 
-        <section id="projects" class="my-5 fade-in">
-            <h2 class="display-6 fw-bold text-center mb-4">Projects</h2>
-            <div class="row g-4">
-                <div class="col-12">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">Business Intelligence Solution for HPN</h3>
-                        <p class="text-muted">Power BI Project | 02/2023 – 05/2023</p>
-                        <ul class="list-group list-group-flush mt-2">
-                            <li class="list-group-item">Designed and delivered an end-to-end business intelligence solution for HPN.</li>
-                            <li class="list-group-item">Tracked KPIs such as Net Sales, Profit, Orders, and Returns on a monthly, weekly, quarterly, and yearly basis.</li>
-                            <li class="list-group-item">Performed data normalization to organize data in a database, eliminating redundancy and inconsistent dependency.</li>
-                            <li class="list-group-item">Created tables and established relationships to protect data and enhance database flexibility.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Contact -->
+  <section id="contact" class="my-5">
+    <h2 class="section-title text-center" data-aos="fade-down">Contact</h2>
+    <div class="glass-card p-5" data-aos="fade-up" data-aos-duration="1000">
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <p class="fs-5"><i class="bi bi-envelope-fill text-info me-3"></i> <a href="mailto:rohitnautiyal55@gmail.com" class="text-light text-decoration-none border-bottom border-info">rohitnautiyal55@gmail.com</a></p>
+          <p class="fs-5"><i class="bi bi-telephone-fill text-info me-3"></i> +91 8218186583</p>
+          <p class="fs-5"><i class="bi bi-pin-map-fill text-info me-3"></i> Upper Nakronda, Dehradun 248008</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="contact-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          <a href="#" class="contact-link"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" class="contact-link"><i class="fas fa-code"></i> LeetCode</a>
+          <a href="#" class="contact-link"><i class="fab fa-hackerrank"></i> HackerRank</a>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <button onclick="openResume()" class="btn btn-resume"><i class="bi bi-file-earmark-pdf-fill me-2"></i>Open resume (PDF)</button>
+      </div>
+    </div>
+  </section>
+</main>
 
-        <section id="certificates" class="my-5 fade-in">
-            <h2 class="display-6 fw-bold text-center mb-4">Certificates</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">Full Stack Data Science BootCamp 2.0</h3>
-                        <p class="text-muted">Ineuron</p>
-                        <p class="mt-2">Comprehensive course covering data science, analytics, and big data, including machine learning operations, cloud infrastructure, and real-time industry projects.</p>
-                        <img src="Screenshot 2024-04-03 222953.png" alt="Certificate" class="certificate-img mt-3 w-100">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="h5 fw-bold">Business Intelligence Internship</h3>
-                        <p class="text-muted">Ineuron.ai</p>
-                        <p class="mt-2">Awarded for successfully completing a project on data analysis and visualization in the media and entertainment industry using Power BI.</p>
-                        <img src="Screenshot 2024-04-03 223129.png" alt="Certificate" class="certificate-img mt-3 w-100">
-                    </div>
-                </div>
-            </div>
-        </section>
+<footer class="text-center py-4" style="color:#7895b2;">
+  <p class="mb-0">© 2025 Rohit Nautiyal · class & data artistry</p>
+</footer>
 
-        <section id="skills" class="my-5 fade-in">
-            <h2 class="display-6 fw-bold text-center mb-4">Skills</h2>
-            <div class="card shadow-sm p-4 text-center">
-                <div class="d-flex flex-wrap justify-content-center">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">PySpark</span>
-                    <span class="skill-tag">Azure</span>
-                    <span class="skill-tag">Power BI</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Statistical Analysis</span>
-                    <span class="skill-tag">Data Visualization</span>
-                    <span class="skill-tag">MS Excel</span>
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">NumPy</span>
-                    <span class="skill-tag">SAP B1</span>
-                    <span class="skill-tag">Power Automate</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="my-5 fade-in">
-            <h2 class="display-6 fw-bold text-center mb-4">Contact Me</h2>
-            <div class="card shadow-sm p-4 text-center">
-                <p class="lead mb-4">Feel free to reach out to me via the following channels:</p>
-                <ul class="list-unstyled mb-4">
-                    <li><strong>Email:</strong> <a href="mailto:rohitnautiyal55@gmail.com" class="text-primary">rohitnautiyal55@gmail.com</a></li>
-                    <li><strong>Phone:</strong> +91 8218186583</li>
-                    <li><strong>Address:</strong> Upper Nakronda, Dehradun, Uttarakhand (Pin - 248008)</li>
-                </ul>
-                <p class="lead mb-4">Connect with me on:</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/rohit-nautiyal-771582217" target="_blank" class="text-primary">LinkedIn</a></li>
-                    <li class="list-inline-item"><a href="https://github.com/rohitnaughty" target="_blank" class="text-primary">GitHub</a></li>
-                    <li class="list-inline-item"><a href="https://leetcode.com/rohitnautiyal55" target="_blank" class="text-primary">LeetCode</a></li>
-                    <li class="list-inline-item"><a href="https://www.hackerrank.com/profile/rohitnautiyal55" target="_blank" class="text-primary">HackerRank</a></li>
-                </ul>
-                <button onclick="openResume()" class="btn btn-primary mt-3">Open Resume</button>
-            </div>
-        </section>
-    </main>
-
-    <footer class="text-white text-center py-4">
-        <p>© 2025 Rohit Nautiyal. All rights reserved.</p>
-    </footer>
-
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        function openResume() {
-            window.open('https://drive.google.com/file/d/17qTyBPW2_XgJpX4tLVZA3gAE-ycaCUVK/view?usp=drivesdk', '_blank');
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const sections = document.querySelectorAll(".fade-in");
-            sections.forEach((section, index) => {
-                setTimeout(() => {
-                    section.classList.add("visible");
-                }, index * 300);
-            });
-        });
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 900, once: true, offset: 20, mirror: false });
+  function openResume() {
+    window.open('https://drive.google.com/file/d/17qTyBPW2_XgJpX4tLVZA3gAE-ycaCUVK/view?usp=drivesdk', '_blank');
+  }
+</script>
 </body>
 </html>
